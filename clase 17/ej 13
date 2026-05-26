@@ -1,0 +1,91 @@
+using System.Collections.Generic;
+
+public class FacialFeatures
+{
+    public string EyeColor { get; }
+    public decimal PhiltrumWidth { get; }
+
+    public FacialFeatures(string eyeColor, decimal philtrumWidth)
+    {
+        EyeColor = eyeColor;
+        PhiltrumWidth = philtrumWidth;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is FacialFeatures other)
+        {
+            return EyeColor == other.EyeColor &&
+                   PhiltrumWidth == other.PhiltrumWidth;
+        }
+
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return EyeColor.GetHashCode() ^ PhiltrumWidth.GetHashCode();
+    }
+}
+
+public class Identity
+{
+    public string Email { get; }
+    public FacialFeatures FacialFeatures { get; }
+
+    public Identity(string email, FacialFeatures facialFeatures)
+    {
+        Email = email;
+        FacialFeatures = facialFeatures;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is Identity other)
+        {
+            return Email == other.Email &&
+                   FacialFeatures.Equals(other.FacialFeatures);
+        }
+
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Email.GetHashCode() ^ FacialFeatures.GetHashCode();
+    }
+}
+
+public class Authenticator
+{
+    private HashSet<Identity> registered = new HashSet<Identity>();
+
+    private Identity admin = new Identity(
+        "admin@exerc.ism",
+        new FacialFeatures("green", 0.9m));
+
+    public static bool AreSameFace(FacialFeatures faceA, FacialFeatures faceB)
+    {
+        return faceA.Equals(faceB);
+    }
+
+    public bool IsAdmin(Identity identity)
+    {
+        return admin.Equals(identity);
+    }
+
+    public bool Register(Identity identity)
+    {
+        return registered.Add(identity);
+    }
+
+    public bool IsRegistered(Identity identity)
+    {
+        return registered.Contains(identity);
+    }
+
+    public static bool AreSameObject(Identity identityA, Identity identityB)
+    {
+        return ReferenceEquals(identityA, identityB);
+    }
+}
