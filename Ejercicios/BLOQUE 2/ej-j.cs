@@ -2,33 +2,24 @@ class ejercicioJ
 {
     static void Main()
     {
-        string[] nombres = new string[1000];
-        int contador = 0;
-        bool repetido = false;
+        string[] listnombres = new string[100];
+        int cantidad = 0;
 
-        while (repetido == false && contador < 1000)
+        Console.Write("Escribi un nombre o fin para terminar");
+        string nombres = Console.ReadLine();
+
+        while (nombres != "fin")
         {
-            Console.WriteLine("Escribi un nombre: ");
-            string entrada = Console.ReadLine();
+            listnombres[cantidad] = nombres;
+            cantidad++;
 
-            int i = 0;
-            while (i < contador && repetido == false)
-            {
-                if (nombres[i].ToLower() == entrada.ToLower())
-                {
-                    repetido = true;
-                }
-                i++;
-            }
-
-            if (repetido == false)
-            {
-                nombres[contador] = entrada;
-                contador++;
-            }
+            Console.Write("Escribi un nombre o fin para terminar");
+            nombres = Console.ReadLine();
         }
 
-        Console.WriteLine("Nombre repetido");
-        Console.WriteLine("Cantidad de nombres ingresados antes del duplicado: " + contador);
+        for (int i = 0; i < cantidad; i++)
+        {
+            Console.WriteLine("Hola, " + listnombres[i]);
+        }
     }
 }
