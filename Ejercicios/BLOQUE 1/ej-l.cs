@@ -1,14 +1,14 @@
-class ejercicioM
+class ejercicioL
 {
     static void Main()
     {
-        Console.Write("Escribi una palabra: ");
-        string palabra = Console.ReadLine();
-
-        for (int i = 0; i < palabra.Length; i++)
+        int total = 0;
+        while (total <= 100)
         {
-            string letra = palabra.Substring(i, 1);
-            Console.WriteLine(letra);
+            Console.Write("Escribi un numero: ");
+            int n = Convert.ToInt16(Console.ReadLine());
+            total += n;
         }
+        Console.WriteLine($"Te pasaste de 100");
     }
 }
