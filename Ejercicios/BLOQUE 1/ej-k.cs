@@ -2,13 +2,11 @@ class ejercicioK
 {
     static void Main()
     {
-        int total = 0;
-        while (total <= 100)
+        Console.Write("Escribi un numero: ");
+        int n = Convert.ToInt16(Console.ReadLine());
+        for (int i = 1; i <= 12; i++)
         {
-            Console.Write("Escribi un numero: ");
-            int n = Convert.ToInt16(Console.ReadLine());
-            total += n;
+            Console.WriteLine($"{n} x {i} = {n * i}");
         }
-        Console.WriteLine($"Te pasaste de 100");
     }
 }
