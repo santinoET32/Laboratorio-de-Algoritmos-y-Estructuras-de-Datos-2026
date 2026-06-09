@@ -1,20 +1,14 @@
-using System.Runtime.CompilerServices;
-
 class ejercicioM
 {
     static void Main()
     {
-        Console.Write("Escribi tu edad: ");
-        int edad = int.Parse(Console.ReadLine());
+        Console.Write("Escribi una palabra: ");
+        string palabra = Console.ReadLine();
 
-        if (edad >= 18)
+        for (int i = 0; i < palabra.Length; i++)
         {
-            Console.WriteLine("Podes votar y manejar");
+            string letra = palabra.Substring(i, 1);
+            Console.WriteLine(letra);
         }
-        if (edad = 16)
-        {
-            Console.WriteLine("Podes votar");
-        }
-
     }
 }
