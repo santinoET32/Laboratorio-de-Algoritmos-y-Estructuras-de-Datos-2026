@@ -2,18 +2,14 @@ class ejercicioQ
 {
     static void Main()
     {
-        Console.Write("Escribi una oracion: ");
-        string oracion = Console.ReadLine().ToLower();
+        string nombre = " ";
 
-        int cont = 0;
-
-        for (int i = 0; i < oracion.Length; i++)
+        while (nombre.Length <= 10)
         {
-            if (oracion[i] == "a")
-            {
-                cont++;
-            }
+            Console.WriteLine("Escribi un nombre: ");
+            nombre = Console.ReadLine();
         }
-        Console.WriteLine($"La oracion tiene {cont} letras A");
+
+        Console.WriteLine("El nombre tiene mas de 10 caracteres");
     }
 }
