@@ -1,12 +1,21 @@
-class ejercicioK
+class ejercicioJ
 {
     static void Main()
     {
-        Console.Write("Escribi un numero: ");
-        int n = Convert.ToInt16(Console.ReadLine());
-        for (int i = 1; i <= 12; i++)
+        Console.WriteLine("Escriba una frase: ");
+        string frase = Console.ReadLine();
+
+        int vocales = 0;
+
+        for (int i = 0; i < frase.Length; i++)
         {
-            Console.WriteLine($"{n} x {i} = {n * i}");
+            if (frase[i] == 'a' || frase[i] == 'e' || frase[i] == 'i' ||
+                frase[i] == 'o' || frase[i] == 'u')
+            {
+                vocales++;
+            }
         }
+
+        Console.WriteLine("La cantidad de vocales es: " + vocales);
     }
 }
